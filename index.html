@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pricing</title>
+    <link rel="stylesheet" href="style.css" class="css" />
+  </head>
+  <body>
+    <form onsubmit="calculatePrice(); return false;">
+      <label for="item">Product Name:</label>
+
+      <select id="item" name="item">
+        <option id="ganesh" value="MarbelganeshMurti">Marbel Ganesh Murti</option>
+        <option id="radha-krishna" value="MarbelradhaKrishnaMurti">Marbel Radha Krishna Murti</option>
+        <option id="budha" value="MarbelBudhaStatue">Marbel Budha Statue</option>
+        <option id="saibaba" value="MarbelSaiBabaStatue">Marbel Sai Baba Statue</option>
+        <option id="ramdarbar" value="MarbelRamDarbarStatue">Marbel Ram Darbar Statue</option>
+      </select>
+      <br />
+      <label for="size">Size:</label>
+      <select id="size" name="size">
+        <option value="6Inch">6Inch</option>
+        <option value="9Inch">9Inch</option>
+        <option value="12Inch">12Inch</option>
+        <option value="15Inch">15Inch</option>
+        <option value="18Inch">18Inch</option>
+        <option value="22Inch">22Inch</option>
+        <option value="28Inch">28Inch</option>
+        <option value="34Inch">34Inch</option>
+        <option value="40Inch">40Inch</option>
+        <option value="44Inch">44Inch</option>
+       
+      </select>
+      <br />
+      <label for="Material">Material:</label>
+      <select id="Material" name="Material">
+        <option value="IndianStone">Indian Stone</option>
+        <option value="MakranaStone">Makrana Stone</option>
+        <option value="VietnamStone">Vietnam Stone</option>
+      </select>
+      <br />
+      <label for="Carvin_Type">Carvin Type:</label>
+      <select id="Carvin_Type" name="Carvin_Type">
+        <option value="Standard">Standard</option>
+        <option value="Premium">Premium</option>
+      </select>
+      <br />
+      <label for="quantity">Quantity:</label>
+      <input type="number" id="quantity" name="quantity" value="1" min="1" />
+      <br />
+      <input type="submit" value="Price" />
+    </form>
+
+    <div id="price"></div>
+    <script src="main.js"></script>
+  </body>
+</
