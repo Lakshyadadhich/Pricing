@@ -6,14 +6,18 @@ function calculatePrice() {
   const carvin = document.getElementById("Carvin_Type").value;
   const quantity = parseInt(document.getElementById("quantity").value); // Convert quantity to an integer
 
+
+  // to use the products and give their price
   const murtiMapping = {
-    MarbelganeshMurti: 3000,
-    MarbelradhaKrishnaMurti: 4000,
-    MarbelBudhaStatue: 3000,
-    MarbelSaiBabaStatue: 3000,
-    MarbelRamDarbarStatue: 3000
+    MarbleganeshMurti: 3000,
+    MarbleradhaKrishnaMurti: 3000,
+    MarbleBudhaStatue: 3000,
+    MarbleSaiBabaStatue: 3000,
+    MarbleRamDarbarStatue: 3000
   };
 
+
+  //it will calculate the price according to size
   function calculatePriceAccSize(size) {
     let basePrice = murtiMapping[murti];
     let increment = 3;
@@ -31,6 +35,8 @@ function calculatePrice() {
     }
   }
 
+  // it will calculate the price according to material
+
   const materialMapping = {
     "1": "IndianStone",
     "2": "MakranaStone",
@@ -45,6 +51,8 @@ function calculatePrice() {
       return calculatePriceAccSize * 2;
     }
   }
+
+  // price accoring to carvin 
 
   const carvinMapping = {
     Standard: 0,
