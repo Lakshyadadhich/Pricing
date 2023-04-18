@@ -20,28 +20,35 @@ function calculatePrice() {
     let percentIncrease = 0.3;
     let totalIncrease = 0;
 
-
     if (size <= 6) {
       return basePrice;
     } else {
-       for (let i = 9; i <= size; i += increment) {
-      totalIncrease += (basePrice * percentIncrease);
-      basePrice += (basePrice * percentIncrease);
-    }
-    return basePrice;
+      for (let i = 9; i <= size; i += increment) {
+        totalIncrease += (basePrice * percentIncrease);
+        basePrice += (basePrice * percentIncrease);
+      }
+      return basePrice;
     }
   }
 
-
   const materialMapping = {
-    IndianStone: 0,
-    MakranaStone: 300,
-    VietnamStone: 400
+    "1": "IndianStone",
+    "2": "MakranaStone",
+    "3": "VietnamStone"
   };
+
+  function calculatePriceAccMate(calculatePriceAccSize, material) {
+    const selectedMaterial = materialMapping[material];
+    if (selectedMaterial === "IndianStone") {
+      return calculatePriceAccSize;
+    } else {
+      return calculatePriceAccSize * 2;
+    }
+  }
 
   const carvinMapping = {
     Standard: 0,
-    Premium: 200
+    Premium: 0.2
   };
 
   console.log(murti);
@@ -50,7 +57,12 @@ function calculatePrice() {
   console.log(carvin);
 
   // Calculate the base price for the selected options
-  let totalPrice = (calculatePriceAccSize(size) + carvinMapping[carvin] + materialMapping[material]) * quantity;
+  let basePrice = calculatePriceAccSize(size);
+  if (materialMapping[material] !== "IndianStone") {
+    basePrice *= 2; // Double the base price for materials other than IndianStone
+  }
+  let carvinAddon = basePrice * carvinMapping[carvin]; // Calculate the carvin addon
+  let totalPrice = (basePrice + carvinAddon) * quantity; // Add the carvin addon to the base price and calculate the total price
 
   document.getElementById("price").innerHTML = "Total Price: $" + totalPrice.toFixed(2);
 
